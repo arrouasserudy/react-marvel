@@ -1,12 +1,12 @@
 import React from 'react';
-import './App.css';
+import styles from './App.module.css';
 
 function App() {
   return (
-    <div className="App">
+    <div className={styles.container}>
       <h1>Marvel</h1>
-      <div className='App-boxes'>
-        <div className='App-box'>
+      <div className={styles.boxes}>
+        <div className={styles.box}>
           <div>
             Title 1
           </div>
@@ -14,7 +14,7 @@ function App() {
             body 1
           </div>
         </div>
-        <div className='App-box'>
+        <div className={styles.box}>
           <div>
             Title 2
           </div>
