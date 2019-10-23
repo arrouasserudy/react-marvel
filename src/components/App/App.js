@@ -8,16 +8,15 @@ const App = () => {
     <div className={styles.container}>
       <h1>Marvel</h1>
       <div className={styles.boxes}>
-        <CharacterCard
-            name={characters[0].name}
-            description={characters[0].description}
-            isHero={characters[0].isHero}
-        />
-        <CharacterCard
-          name={characters[1].name}
-          description={characters[1].description}
-          isHero={characters[1].isHero}
-        />
+        {
+            characters.map(item =>
+                <CharacterCard
+                name={item.name}
+                description={item.description}
+                isHero={item.isHero}
+                />
+            )
+        }
       </div>
     </div>
   );
