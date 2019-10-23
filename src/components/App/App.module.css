@@ -11,8 +11,6 @@
 .box {
   margin: 5px;
   padding: 5px;
-  width: 100px;
-  height: 100px;
   background-color: aquamarine;
   border: black solid 1px;
 }

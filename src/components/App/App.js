@@ -1,5 +1,10 @@
 import React from 'react';
 import styles from './App.module.css';
+import characters from "../../utils/characters";
+
+const DEFAULT_DESCRIPTION = 'Un personnage marvel'
+
+const getHeroText = isHero => `C'est un ${ isHero ? 'hero' : 'vilain'}`
 
 function App() {
   return (
@@ -8,18 +13,24 @@ function App() {
       <div className={styles.boxes}>
         <div className={styles.box}>
           <div>
-            Title 1
+            {characters[0].name}
           </div>
           <div>
-            body 1
+            {characters[0].description || DEFAULT_DESCRIPTION}
+          </div>
+          <div>
+            {getHeroText(characters[0].isHero)}
           </div>
         </div>
         <div className={styles.box}>
           <div>
-            Title 2
+            {characters[1].name}
           </div>
           <div>
-            body 2
+            {characters[1].description}
+          </div>
+          <div>
+            {getHeroText(characters[1].isHero)}
           </div>
         </div>
       </div>
