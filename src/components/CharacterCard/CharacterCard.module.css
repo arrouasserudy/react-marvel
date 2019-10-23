@@ -1,0 +1,12 @@
+.container {
+    margin: 5px;
+    padding: 5px;
+    background-color: aquamarine;
+    border: black solid 1px;
+}
+
+@media (max-width: 600px) {
+    .container {
+        background-color: indianred;
+    }
+}

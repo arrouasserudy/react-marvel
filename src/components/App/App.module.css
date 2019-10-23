@@ -7,16 +7,3 @@
   flex-direction: column;
   align-items: flex-start;
 }
-
-.box {
-  margin: 5px;
-  padding: 5px;
-  background-color: aquamarine;
-  border: black solid 1px;
-}
-
-@media (max-width: 600px) {
-  .box {
-    background-color: indianred;
-  }
-}
