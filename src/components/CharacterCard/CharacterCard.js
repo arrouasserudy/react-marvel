@@ -4,14 +4,20 @@ import characters from "../../utils/characters";
 
 const DEFAULT_DESCRIPTION = 'Un personnage marvel'
 
-const CharacterCard = () => {
+const getHeroText = isHero => `C'est un ${ isHero ? 'hero' : 'vilain'}`
+
+const CharacterCard = props => {
+    const { name, description, isHero } = props
     return (
         <div className={styles.container}>
             <div>
-                {characters[0].name}
+                {name}
             </div>
             <div>
-                {characters[0].description || DEFAULT_DESCRIPTION}
+                {description || DEFAULT_DESCRIPTION}
+            </div>
+            <div>
+                {getHeroText(isHero)}
             </div>
         </div>
     )
