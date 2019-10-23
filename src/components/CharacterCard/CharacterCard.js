@@ -1,6 +1,6 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import styles from "../CharacterCard/CharacterCard.module.css";
-import characters from "../../utils/characters";
 
 const DEFAULT_DESCRIPTION = 'Un personnage marvel'
 
@@ -14,13 +14,23 @@ const CharacterCard = props => {
                 {name}
             </div>
             <div>
-                {description || DEFAULT_DESCRIPTION}
+                {description}
             </div>
             <div>
                 {getHeroText(isHero)}
             </div>
         </div>
     )
+}
+
+CharacterCard.propTypes = {
+    name: PropTypes.string.isRequired,
+    description: PropTypes.string,
+    isHero: PropTypes.bool
+}
+
+CharacterCard.defaultProps = {
+    description: DEFAULT_DESCRIPTION
 }
 
 export default CharacterCard
