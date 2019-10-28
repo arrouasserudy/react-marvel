@@ -3,11 +3,3 @@
   background-color: #650000;
   height: 800px;
 }
-
-.boxes {
-  display: flex;
-  align-items: flex-start;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-}
