@@ -1,5 +1,5 @@
 .container {
   text-align: center;
   background-color: #650000;
-  height: 800px;
+  min-height: 800px;
 }
