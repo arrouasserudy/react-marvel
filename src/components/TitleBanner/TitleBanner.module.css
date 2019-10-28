@@ -1,0 +1,12 @@
+.container {
+    background-color: #462F30;
+    color: #FEFEFE;
+    font-size: 56px;
+    font-weight: bolder;
+    font-family: Tahoma, serif;
+}
+
+.image {
+    width: 200px;
+    height: 200px;
+}
