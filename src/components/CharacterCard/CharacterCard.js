@@ -4,8 +4,6 @@ import styles from '../CharacterCard/CharacterCard.module.css'
 
 const DEFAULT_DESCRIPTION = 'Un personnage marvel'
 
-const getHeroText = isHero => `C'est un ${isHero ? 'hero' : 'vilain'}`
-
 const getColor = isHero => {
     if (isHero === true) {
         return 'blue'
@@ -24,8 +22,7 @@ const CharacterCard = props => {
                 <div className={`${styles.image} ${styles[getColor(isHero)]}`}/>
                 <div className={styles.name}>{name}</div>
             </div>
-            <div>{description}</div>
-            <div className={getColor(isHero)}>{getHeroText(isHero)}</div>
+            <div className={styles.description}>{description}</div>
         </div>
     )
 }

@@ -46,3 +46,8 @@
 .grey {
     background-color: #675757;
 }
+
+.description {
+    margin-left: 10px;
+    text-align: left;
+}
