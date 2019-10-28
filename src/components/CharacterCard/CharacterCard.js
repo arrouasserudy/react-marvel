@@ -10,7 +10,10 @@ const CharacterCard = props => {
     const { name, description, isHero } = props
     return (
         <div className={styles.container}>
-            <div>{name}</div>
+            <div className={styles.top}>
+                <div className={styles.image}/>
+                <div className={styles.name}>{name}</div>
+            </div>
             <div>{description}</div>
             <div>{getHeroText(isHero)}</div>
         </div>
