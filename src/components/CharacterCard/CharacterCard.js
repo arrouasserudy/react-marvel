@@ -18,6 +18,12 @@ class CharacterCard extends Component {
         isOnHover: false
     }
 
+    getSnapshotBeforeUpdate(prevProps, prevState) {
+        if (!prevProps.fullScreen && this.props.fullScreen) {
+            this.onMouseLeave()
+        }
+    }
+
     onMouseEnter = () => {
         this.setState({isOnHover: true})
     }
