@@ -14,6 +14,17 @@ const getColor = isHero => {
 }
 
 class CharacterCard extends Component {
+    state = {
+        isOnHover: false
+    }
+
+    onMouseEnter = () => {
+        this.setState({isOnHover: true})
+    }
+    onMouseLeave = () => {
+        this.setState({isOnHover: false})
+    }
+
     renderFullScreenCard = () => {
         const { name, description, isHero, setFullScreenId } = this.props
 
@@ -40,10 +51,13 @@ class CharacterCard extends Component {
 
     renderCard = () => {
         const { name, description, isHero, setFullScreenId, id } = this.props
+        const {isOnHover} = this.state
         return (
             <div
-                className={styles.container}
+                className={`${styles.container} ${isOnHover && styles.onHover}`}
                 onClick={() => setFullScreenId(id)}
+                onMouseEnter={this.onMouseEnter}
+                onMouseLeave={this.onMouseLeave}
             >
                 <div className={styles.top}>
                     <div

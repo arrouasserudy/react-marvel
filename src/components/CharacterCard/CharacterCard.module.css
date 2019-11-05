@@ -16,6 +16,12 @@
     }
 }
 
+.onHover {
+    zoom: 1.2;
+    margin: -15px -30px;
+    z-index: 1;
+}
+
 .top {
     display: flex;
     margin-bottom: 10px;
