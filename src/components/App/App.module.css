@@ -3,12 +3,3 @@
   background-color: #650000;
   min-height: 800px;
 }
-
-.counterContainer {
-  display: flex;
-  justify-content: center;
-}
-
-.counter {
-    margin: 20px;
-}

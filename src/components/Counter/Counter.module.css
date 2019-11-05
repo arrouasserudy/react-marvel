@@ -1,0 +1,12 @@
+.container {
+
+}
+
+.counterContainer {
+    display: flex;
+    justify-content: center;
+}
+
+.counter {
+    margin: 20px;
+}
