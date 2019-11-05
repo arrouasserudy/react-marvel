@@ -13,14 +13,16 @@ class App extends React.Component {
         }
     }
 
-    // Marche
+    // Ne marche pas
     incremente = () => {
+        this.setState({counter: this.state.counter + 1})
         this.setState({counter: this.state.counter + 1})
     }
 
-    // Ne marche pas
-    decremente() {
-        this.setState({counter: this.state.counter - 1})
+    // Marche
+    decremente = () => {
+        this.setState(state => ({counter: state.counter - 1}))
+        this.setState(state => ({counter: state.counter - 1}))
     }
 
     render() {
@@ -29,9 +31,9 @@ class App extends React.Component {
             <div className={styles.container}>
                 <TitleBanner />
                 {/*<CardList />*/}
-                <div className={styles.counter}>
+                <div className={styles.counterContainer}>
                     <button onClick={this.incremente}>Incrementer</button>
-                    <div>{counter}</div>
+                    <div className={styles.counter}>{counter}</div>
                     <button onClick={this.decremente}>Decrementer</button>
                 </div>
             </div>

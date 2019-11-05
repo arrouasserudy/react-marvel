@@ -4,7 +4,11 @@
   min-height: 800px;
 }
 
-.counter {
+.counterContainer {
   display: flex;
   justify-content: center;
+}
+
+.counter {
+    margin: 20px;
 }
