@@ -14,7 +14,7 @@ const getColor = isHero => {
 }
 
 const CharacterCard = props => {
-    const { name, description, isHero, fullScreen } = props
+    const { name, description, isHero, fullScreen, setFullScreenId, id } = props
 
     const FullScreenCard = (
         <div className={styles.fullScreenContainer}>
@@ -23,12 +23,12 @@ const CharacterCard = props => {
                 <div className={styles.name}>{name}</div>
                 <div className={styles.description}>{description}</div>
             </div>
-            <div className={styles.close}>X</div>
+            <div className={styles.close} onClick={() => setFullScreenId(null)}>X</div>
         </div>
     )
 
     const Card = (
-        <div className={styles.container}>
+        <div className={styles.container} onClick={() => setFullScreenId(id)}>
             <div className={styles.top}>
                 <div className={`${styles.image} ${styles[getColor(isHero)]}`}/>
                 <div className={styles.name}>{name}</div>
@@ -51,6 +51,8 @@ CharacterCard.propTypes = {
     description: PropTypes.string,
     isHero: PropTypes.bool,
     fullScreen: PropTypes.bool,
+    setFullScreenId: PropTypes.func,
+    id: PropTypes.string,
 }
 
 CharacterCard.defaultProps = {

@@ -10,6 +10,11 @@ class CardList extends Component {
             fullScreenId: null
         }
     }
+
+    setFullScreenId = id => {
+        this.setState({fullScreenId: id})
+    }
+
     render() {
         const {fullScreenId} = this.state
         return (
@@ -17,10 +22,12 @@ class CardList extends Component {
                 {characters.map(item => (
                     <CharacterCard
                         key={item.id}
+                        id={item.id}
                         name={item.name}
                         description={item.description}
                         isHero={item.isHero}
                         fullScreen={fullScreenId ? item.id === fullScreenId : null}
+                        setFullScreenId={this.setFullScreenId}
                     />
                 ))}
             </div>
