@@ -9,10 +9,7 @@ class App extends React.Component {
         return (
             <div className={styles.container}>
                 <TitleBanner />
-                {/*<CardList />*/}
-                <Counter>
-                    My counter
-                </Counter>
+                <CardList />
             </div>
         )
     }

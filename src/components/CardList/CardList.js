@@ -12,6 +12,7 @@ const CardList = () => {
                     name={item.name}
                     description={item.description}
                     isHero={item.isHero}
+                    fullScreen={item.id === 2}
                 />
             ))}
         </div>
