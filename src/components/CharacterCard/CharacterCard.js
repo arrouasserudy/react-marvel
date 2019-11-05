@@ -16,15 +16,7 @@ const getColor = isHero => {
 const CharacterCard = props => {
     const { name, description, isHero, fullScreen } = props
 
-    return !fullScreen ? (
-        <div className={styles.container}>
-            <div className={styles.top}>
-                <div className={`${styles.image} ${styles[getColor(isHero)]}`}/>
-                <div className={styles.name}>{name}</div>
-            </div>
-            <div className={styles.description}>{description}</div>
-        </div>
-    ) : (
+    const FullScreenCard = (
         <div className={styles.fullScreenContainer}>
             <div className={`${styles.fullScreenImage} ${styles[getColor(isHero)]}`}/>
             <div className={styles.fullScreenBody}>
@@ -34,6 +26,24 @@ const CharacterCard = props => {
             <div className={styles.close}>X</div>
         </div>
     )
+
+    const Card = (
+        <div className={styles.container}>
+            <div className={styles.top}>
+                <div className={`${styles.image} ${styles[getColor(isHero)]}`}/>
+                <div className={styles.name}>{name}</div>
+            </div>
+            <div className={styles.description}>{description}</div>
+        </div>
+    )
+
+    if (fullScreen) {
+        return FullScreenCard
+    } else if (fullScreen === null) {
+        return Card
+    } else {
+        return null
+    }
 }
 
 CharacterCard.propTypes = {
