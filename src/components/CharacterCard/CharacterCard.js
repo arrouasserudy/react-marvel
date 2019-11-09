@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import styles from '../CharacterCard/CharacterCard.module.css'
 import FullScreenCard from "./FullScreenCard"
+import { Spring } from 'react-spring/renderprops'
 
 const DEFAULT_DESCRIPTION = 'Un personnage marvel'
 
@@ -43,22 +44,31 @@ class CharacterCard extends Component {
         const { name, description, isHero, setFullScreenId, id } = this.props
         const {isOnHover} = this.state
         return (
-            <div
-                className={`${styles.container} ${isOnHover && styles.onHover}`}
-                onClick={() => setFullScreenId(id)}
-                onMouseEnter={this.onMouseEnter}
-                onMouseLeave={this.onMouseLeave}
+            <Spring
+                from={{ opacity: 1, height: '0px', padding: '0px', border: '0px'}}
+                to={{ opacity: 1, height: '200px', padding: '5px', border: '1px' }}
+                delay={500}
             >
-                <div className={styles.top}>
-                    <div
-                        className={`${styles.image} ${
-                            styles[getColor(isHero)]
-                        }`}
-                    />
-                    <div className={styles.name}>{name}</div>
-                </div>
-                <div className={styles.description}>{description}</div>
-            </div>
+                { props =>
+                        <div
+                            className={`${styles.container} ${isOnHover && styles.onHover}`}
+                            onClick={() => setFullScreenId(id)}
+                            onMouseEnter={this.onMouseEnter}
+                            onMouseLeave={this.onMouseLeave}
+                            style={props}
+                        >
+                            <div className={styles.top}>
+                                <div
+                                    className={`${styles.image} ${
+                                        styles[getColor(isHero)]
+                                    }`}
+                                />
+                                <div className={styles.name}>{name}</div>
+                            </div>
+                            <div className={styles.description}>{description}</div>
+                        </div>
+                }
+            </Spring>
         )
     }
 
