@@ -32,7 +32,7 @@ export default [
         isHero: true,
     },
     {
-        id: '6',
+        id: '5',
         name: 'Magneto',
         isHero: false,
     },

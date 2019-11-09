@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import styles from '../CharacterCard/CharacterCard.module.css'
+import FullScreenCard from "./FullScreenCard"
 
 const DEFAULT_DESCRIPTION = 'Un personnage marvel'
 
@@ -32,26 +33,9 @@ class CharacterCard extends Component {
     }
 
     renderFullScreenCard = () => {
-        const { name, description, isHero, setFullScreenId } = this.props
-
+        const { isHero } = this.props
         return (
-            <div className={styles.fullScreenContainer}>
-                <div
-                    className={`${styles.fullScreenImage} ${
-                        styles[getColor(isHero)]
-                    }`}
-                />
-                <div className={styles.fullScreenBody}>
-                    <div className={styles.name}>{name}</div>
-                    <div className={styles.description}>{description}</div>
-                </div>
-                <div
-                    className={styles.close}
-                    onClick={() => setFullScreenId(null)}
-                >
-                    X
-                </div>
-            </div>
+            <FullScreenCard {...this.props} color={getColor(isHero)}/>
         )
     }
 
