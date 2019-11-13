@@ -4,7 +4,8 @@ class Timer extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            timer: 0
+            timer: 0,
+            show: true,
         }
     }
 
@@ -18,6 +19,11 @@ class Timer extends Component {
         clearInterval(this.interval)
     }
 
+    deactivate = () => {
+        clearInterval(this.interval)
+        this.setState({show: false})
+    }
+
     formatNumber = number => number < 10 ? `0${number}`: number
 
     displayTime = () => {
@@ -29,11 +35,13 @@ class Timer extends Component {
     }
 
     render() {
-        return (
+        const {show} = this.state
+        return show ? (
             <div>
                 {this.displayTime()}
+                <button onClick={this.deactivate}>Desactiver</button>
             </div>
-        )
+        ) : null
     }
 }
 
