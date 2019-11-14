@@ -8,9 +8,20 @@ class FullScreenCard extends Component {
         comment: ''
     }
 
+    componentDidMount() {
+        const {name} = this.props
+        const comment = localStorage.getItem(name)
+        if (comment) {
+            this.setState({comment: JSON.parse(comment), haveComment: true})
+        }
+    }
+
     onSubmit = e => {
+        const { name } = this.props
+        const { comment } = this.state
         e.preventDefault()
         this.setState({haveComment: true})
+        localStorage.setItem(name, JSON.stringify(comment))
     }
 
     onEdit = () => {
