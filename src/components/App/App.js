@@ -13,8 +13,8 @@ import NotFoundScreen from "../NotFoundScreen/NotFoundScreen"
 class App extends React.Component {
    render() {
         return (
-            <Layout>
-                <Router>
+            <Router>
+                <Layout>
                     <Switch>
                         <Route path="/" exact>
                             <SearchScreen/>
@@ -26,8 +26,8 @@ class App extends React.Component {
                             <NotFoundScreen/>
                         </Route>
                     </Switch>
-                </Router>
-            </Layout>
+                </Layout>
+            </Router>
         )
     }
 }
