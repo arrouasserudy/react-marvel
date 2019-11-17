@@ -6,10 +6,11 @@ class Header extends Component {
     render() {
         return (
             <div className={styles.container} >
-                <div>My WebApp</div>
+                <div className={styles.title}>Rudy's Webapp</div>
                 <div className={styles.links}>
-                    <Link to='/'>Homepage</Link>
-                    <Link to='/favorites'>Favorite</Link>
+
+                    <Link className={styles.link} to='/'>Homepage</Link>
+                    <Link className={styles.link} to='/favorites'>Favorite</Link>
                 </div>
             </div>
         )

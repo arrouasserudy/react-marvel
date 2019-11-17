@@ -7,12 +7,23 @@
     width: 100%;
 }
 
+.title {
+    align-self: center;
+    margin-left: 50px;
+    font-size: 36px;
+    font-weight: bolder;
+    color: #f9ddb9;
+}
+
 .links {
     align-self: flex-end;
     margin-bottom: 10px;
     margin-right: 50px;
 }
 
-a {
+.link {
     margin: 0 10px;
+    color: #f9ddb9;
+    font-weight: lighter;
+    text-decoration: none;
 }
