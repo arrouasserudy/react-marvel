@@ -1,0 +1,18 @@
+.container {
+    background-color: indianred;
+    display: flex;
+    justify-content: space-between;
+    height: 50px;
+    position: fixed;
+    width: 100%;
+}
+
+.links {
+    align-self: flex-end;
+    margin-bottom: 10px;
+    margin-right: 50px;
+}
+
+a {
+    margin: 0 10px;
+}
