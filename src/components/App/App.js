@@ -2,15 +2,17 @@ import React from 'react'
 import styles from './App.module.css'
 import TitleBanner from '../TitleBanner/TitleBanner'
 import CardList from '../CardList/CardList'
-import Counter from "../Counter/Counter"
+import Layout from "../Layout/Layout"
 
 class App extends React.Component {
    render() {
         return (
-            <div className={styles.container}>
-                <TitleBanner />
-                <CardList />
-            </div>
+            <Layout>
+                <div className={styles.container}>
+                    <TitleBanner />
+                    <CardList />
+                </div>
+            </Layout>
         )
     }
 }
