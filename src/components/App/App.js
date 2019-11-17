@@ -1,17 +1,32 @@
 import React from 'react'
-import styles from './App.module.css'
-import TitleBanner from '../TitleBanner/TitleBanner'
-import CardList from '../CardList/CardList'
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+} from "react-router-dom"
+
 import Layout from "../Layout/Layout"
+import SearchScreen from "../SearchScreen/SearchScreen"
+import FavoriteScreen from "../FavoriteScreen/FavoriteScreen"
+import NotFoundScreen from "../NotFoundScreen/NotFoundScreen"
 
 class App extends React.Component {
    render() {
         return (
             <Layout>
-                <div className={styles.container}>
-                    <TitleBanner />
-                    <CardList />
-                </div>
+                <Router>
+                    <Switch>
+                        <Route path="/" exact>
+                            <SearchScreen/>
+                        </Route>
+                        <Route path="/favorites">
+                            <FavoriteScreen/>
+                        </Route>
+                        <Route>
+                            <NotFoundScreen/>
+                        </Route>
+                    </Switch>
+                </Router>
             </Layout>
         )
     }
