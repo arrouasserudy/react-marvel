@@ -1,0 +1,2 @@
+export const MARVEL_PUBLIC_KEY = 'c0557821b6929cce11e6f47f43659b8a'
+export const MARVEL_PRIVATE_KEY = '0b6a0ba5b83c4b366289c97254acdc38e318ce4b'
