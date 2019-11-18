@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import styles from '../CharacterCard/CharacterCard.module.css'
 import FullScreenCard from "./FullScreenCard"
+import {getImage} from "../../api/marvelAPI"
 
 const DEFAULT_DESCRIPTION = 'Un personnage marvel'
 
@@ -34,7 +35,7 @@ class CharacterCard extends Component {
     }
 
     renderCard = () => {
-        const { name, description, isHero, setFullScreenId, id } = this.props
+        const { name, description, setFullScreenId, id, thumbnail } = this.props
         const {isOnHover} = this.state
         return (
             <div
@@ -44,11 +45,7 @@ class CharacterCard extends Component {
                 onMouseLeave={this.onMouseLeave}
             >
                 <div className={styles.top}>
-                    <div
-                        className={`${styles.image} ${
-                            styles[getColor(isHero)]
-                        }`}
-                    />
+                    <img className={styles.image} alt='perso' src={getImage(thumbnail)}/>
                     <div className={styles.name}>{name}</div>
                 </div>
                 <div className={styles.description}>{description}</div>
@@ -71,7 +68,7 @@ class CharacterCard extends Component {
 CharacterCard.propTypes = {
     name: PropTypes.string.isRequired,
     description: PropTypes.string,
-    isHero: PropTypes.bool,
+    thumbnail: PropTypes.object,
     fullScreen: PropTypes.bool,
     setFullScreenId: PropTypes.func,
     id: PropTypes.number,

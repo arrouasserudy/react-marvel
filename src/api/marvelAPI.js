@@ -21,10 +21,11 @@ const getHash = () => {
 const BASE_REQUEST = 'http://gateway.marvel.com'
 const authParams = `ts=${getDate()}&apikey=${MARVEL_PUBLIC_KEY}&hash=${getHash()}`
 
-export const generateRequest = (url) => {
-    return `${BASE_REQUEST}/${url}?${authParams}`
+export const findCharacter = name => {
+    return `${BASE_REQUEST}/v1/public/characters?${authParams}&nameStartsWith=${name}`
 }
 
-export const findCharacter = (name) => {
-    return `${BASE_REQUEST}/v1/public/characters?${authParams}&nameStartsWith=${name}`
+export const getImage = thumbnail => {
+    const { path, extension } = thumbnail
+    return `${path}/portrait_medium.${extension}`
 }

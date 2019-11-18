@@ -46,7 +46,7 @@ class CardList extends Component {
                                 id={item.id}
                                 name={item.name}
                                 description={item.description}
-                                isHero={item.isHero}
+                                thumbnail={item.thumbnail}
                                 fullScreen={fullScreenId ? item.id === fullScreenId : null}
                                 setFullScreenId={this.setFullScreenId}
                             />
