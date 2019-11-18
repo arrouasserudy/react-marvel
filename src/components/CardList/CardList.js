@@ -1,8 +1,9 @@
 import React, {Component} from 'react'
+import axios from "axios"
 import styles from '../CardList/CardList.module.css'
-import characters from "../../utils/characters"
 import CharacterCard from "../CharacterCard/CharacterCard"
 import Search from "../Search/Search"
+import {findCharacter} from "../../api/marvelAPI"
 
 class CardList extends Component {
     constructor(props) {
@@ -10,6 +11,7 @@ class CardList extends Component {
         this.state = {
             fullScreenId: null,
             value: '',
+            results: []
         }
     }
 
@@ -21,13 +23,23 @@ class CardList extends Component {
         this.setState({value: event.target.value})
     }
 
+    onSearch = async () => {
+        const {value} = this.state
+        const request = findCharacter(value)
+        console.log(request)
+        const response = await axios.get(request)
+        const results = response.data.data.results
+        console.log(results)
+        this.setState({results})
+    }
+
     render() {
-        const {fullScreenId, value} = this.state
+        const {fullScreenId, value, results} = this.state
         return (
             <div className={styles.container}>
-                <Search value={value} onChange={this.onChange} />
+                <Search value={value} onChange={this.onChange} onSearch={this.onSearch} />
                 <div className={styles.list}>
-                    {characters
+                    {results
                         .filter(item => item.name.toLowerCase().includes(this.state.value))
                         .map(item => (
                             <CharacterCard

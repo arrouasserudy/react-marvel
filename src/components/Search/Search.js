@@ -11,12 +11,23 @@ class Search extends Component {
         this.textInput.current.focus()
     }
 
+    onSubmit = e => {
+        const {onSearch} = this.props
+        e.preventDefault()
+        onSearch()
+    }
+
     render() {
+        const {onChange, onSearch} = this.props
         return (
             <div className={styles.container} onClick={this.onClick}>
-                <input
-                    ref={this.textInput}
-                />
+                <form onSubmit={this.onSubmit}>
+                    <input
+                        ref={this.textInput}
+                        onChange={onChange}
+                    />
+                    <button onClick={onSearch}>Search</button>
+                </form>
             </div>
         )
     }

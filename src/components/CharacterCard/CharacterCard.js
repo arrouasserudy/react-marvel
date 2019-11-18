@@ -74,7 +74,7 @@ CharacterCard.propTypes = {
     isHero: PropTypes.bool,
     fullScreen: PropTypes.bool,
     setFullScreenId: PropTypes.func,
-    id: PropTypes.string,
+    id: PropTypes.number,
 }
 
 CharacterCard.defaultProps = {
