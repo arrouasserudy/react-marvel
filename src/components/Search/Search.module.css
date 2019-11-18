@@ -1,6 +1,8 @@
 .container {
     height: 25px;
     margin: 20px 0 30px;
+    display: flex;
+    justify-content: center;
 }
 
 input {
@@ -9,4 +11,11 @@ input {
     border-radius: 25px;
     font-size: 20px;
     padding-left: 10px;
+    outline: none;
+}
+
+.button {
+    height: 30px;
+    border-radius: 20px;
+    margin-left: 10px;
 }

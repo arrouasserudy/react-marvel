@@ -20,15 +20,15 @@ class Search extends Component {
     render() {
         const {onChange, onSearch} = this.props
         return (
-            <div className={styles.container} onClick={this.onClick}>
-                <form onSubmit={this.onSubmit}>
-                    <input
-                        ref={this.textInput}
-                        onChange={onChange}
-                    />
-                    <button onClick={onSearch}>Search</button>
-                </form>
-            </div>
+            <form onSubmit={this.onSubmit}>
+                <div className={styles.container} onClick={this.onClick}>
+                        <input
+                            ref={this.textInput}
+                            onChange={onChange}
+                        />
+                        <button className={styles.button} onClick={onSearch}>Search</button>
+                </div>
+            </form>
         )
     }
 }

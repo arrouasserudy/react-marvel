@@ -63,6 +63,8 @@
 .description {
     margin-left: 10px;
     text-align: left;
+    height: 75px;
+    overflow: hidden;
 }
 
 .fullScreenContainer {

@@ -40,7 +40,6 @@ class CardList extends Component {
                 <Search value={value} onChange={this.onChange} onSearch={this.onSearch} />
                 <div className={styles.list}>
                     {results
-                        .filter(item => item.name.toLowerCase().includes(this.state.value))
                         .map(item => (
                             <CharacterCard
                                 key={item.id}
