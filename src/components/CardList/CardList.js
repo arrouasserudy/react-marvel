@@ -4,6 +4,7 @@ import styles from '../CardList/CardList.module.css'
 import CharacterCard from "../CharacterCard/CharacterCard"
 import Search from "../Search/Search"
 import {findCharacter} from "../../api/marvelAPI"
+import { Default } from 'react-spinners-css';
 
 class CardList extends Component {
     constructor(props) {
@@ -25,19 +26,27 @@ class CardList extends Component {
 
     onSearch = async () => {
         const {value} = this.state
+        if (!value) {
+            return
+        }
         const request = findCharacter(value)
-        console.log(request)
+        this.setState({loading: true})
         const response = await axios.get(request)
+        this.setState({loading: false})
         const results = response.data.data.results
         console.log(results)
         this.setState({results})
     }
 
     render() {
-        const {fullScreenId, value, results} = this.state
+        const {fullScreenId, value, results, loading} = this.state
         return (
             <div className={styles.container}>
                 <Search value={value} onChange={this.onChange} onSearch={this.onSearch} />
+                {loading && (
+                    <div>
+                        <Default color='white'/>
+                    </div>)}
                 <div className={styles.list}>
                     {results
                         .map(item => (
