@@ -26,7 +26,7 @@ class Search extends Component {
                             ref={this.textInput}
                             onChange={onChange}
                         />
-                        <button className={styles.button} onClick={onSearch}>Search</button>
+                        <button className={styles.button} >Search</button>
                 </div>
             </form>
         )

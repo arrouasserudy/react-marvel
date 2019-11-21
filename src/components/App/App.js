@@ -16,15 +16,9 @@ class App extends React.Component {
             <Router>
                 <Layout>
                     <Switch>
-                        <Route path="/" exact>
-                            <SearchScreen/>
-                        </Route>
-                        <Route path="/favorites">
-                            <FavoriteScreen/>
-                        </Route>
-                        <Route>
-                            <NotFoundScreen/>
-                        </Route>
+                        <Route exact path="/" component={SearchScreen}/>
+                        <Route path="/favorites" component={FavoriteScreen}/>
+                        <Route component={NotFoundScreen} />
                     </Switch>
                 </Layout>
             </Router>
