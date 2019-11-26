@@ -7,7 +7,6 @@ const initialState = {
 }
 
 export default function timer(state = initialState, action) {
-    console.log('state',state)
     switch (action.type) {
         case SET_SEARCH:
             return {

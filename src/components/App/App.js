@@ -6,7 +6,8 @@ import {
 } from "react-router-dom"
 
 import { Provider } from 'react-redux'
-import { createStore } from 'redux'
+import { applyMiddleware, createStore } from 'redux'
+import logger from 'redux-logger'
 
 import Layout from "../Layout/Layout"
 import SearchScreen from "../SearchScreen/SearchScreen"
@@ -14,7 +15,10 @@ import FavoriteScreen from "../FavoriteScreen/FavoriteScreen"
 import NotFoundScreen from "../NotFoundScreen/NotFoundScreen"
 import reducers from '../../reducers/index'
 
-const store = createStore(reducers)
+const store = createStore(
+    reducers,
+    applyMiddleware(logger)
+)
 
 class App extends React.Component {
    render() {
