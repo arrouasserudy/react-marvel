@@ -25,6 +25,10 @@ export const findCharacter = name => {
     return `${BASE_REQUEST}/v1/public/characters?${authParams}&nameStartsWith=${name}`
 }
 
+export const findCharacterById = id => {
+    return `${BASE_REQUEST}/v1/public/characters/${id}?${authParams}`
+}
+
 export const getImage = thumbnail => {
     const { path, extension } = thumbnail
     return `${path}/portrait_medium.${extension}`
