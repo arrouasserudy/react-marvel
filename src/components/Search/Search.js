@@ -23,6 +23,7 @@ class Search extends Component {
             <form onSubmit={this.onSubmit}>
                 <div className={styles.container} onClick={this.onClick}>
                         <input
+                            className={styles.input}
                             ref={this.textInput}
                             onChange={onChange}
                         />
