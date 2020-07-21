@@ -1,40 +1,63 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styles from '../CharacterCard/CharacterCard.module.css'
+import SmallCard from './SmallCard/SmallCard'
+import BigCard from './BigCard/BigCard'
 
-const DEFAULT_DESCRIPTION = 'Un personnage marvel'
-
-const getColor = isHero => {
+const getColor = (isHero) => {
     if (isHero === true) {
         return 'blue'
     } else if (isHero === false) {
-        return  'red'
+        return 'red'
     }
     return 'grey'
 }
 
-const CharacterCard = props => {
-    const { name, description, isHero } = props
 
-    return (
-        <div className={styles.container}>
-            <div className={styles.top}>
-                <div className={`${styles.image} ${styles[getColor(isHero)]}`}/>
-                <div className={styles.name}>{name}</div>
-            </div>
-            <div className={styles.description}>{description}</div>
-        </div>
-    )
+const getColor1 = (isHero) => {
+    let color = null
+    if (isHero === true) {
+        color =  'blue'
+    } else if (isHero === false) {
+        color = 'red'
+    }
+    color = 'grey'
+    return color
+}
+
+
+const CharacterCard = props => {
+    const { name, description, isHero, isBig, setId, id, invisible } = props
+
+    if (isBig) {
+        return (
+            <BigCard
+                name={name}
+                description={description}
+                isHero={isHero}
+                getColor={getColor}
+                setId={setId}
+            />
+        )
+    } else if (invisible) {
+        return null
+    } else {
+        return (
+            <SmallCard
+                name={name}
+                description={description}
+                isHero={isHero}
+                getColor={getColor}
+                setId={setId}
+                id={id}
+            />
+        )
+    }
 }
 
 CharacterCard.propTypes = {
     name: PropTypes.string.isRequired,
     description: PropTypes.string,
     isHero: PropTypes.bool,
-}
-
-CharacterCard.defaultProps = {
-    description: DEFAULT_DESCRIPTION,
 }
 
 export default CharacterCard
