@@ -14,30 +14,28 @@ class CardList extends React.Component {
 
     render() {
         const { selectedId } = this.state
+        const {result} = this.props
 
-        const filteredList = characters.filter(item => {
-            const { value } = this.props
-            const filterName = item.name
-                .toLowerCase()
-                .includes(value.toLowerCase())
+        // const filteredList = characters.filter(item => {
+        //     const { value } = this.props
+        //     const filterName = item.name
+        //         .toLowerCase()
+        //         .includes(value.toLowerCase())
+        //
+        //     let filterDescription
+        //     if (item.description) {
+        //         filterDescription = item.description.toLowerCase()
+        //             .includes(value.toLowerCase())
+        //     }
+        //     return filterName || filterDescription
+        // })
 
-            let filterDescription
-            if (item.description) {
-                filterDescription = item.description.toLowerCase()
-                    .includes(value.toLowerCase())
-            }
-            return filterName || filterDescription
-        })
-
-        console.log('filteredList:', filteredList)
-
-        const mapList = filteredList.map(item => (
+        const mapList = result.map(item => (
             <CharacterCard
                 key={item.id}
                 id={item.id}
                 name={item.name}
                 description={item.description}
-                isHero={item.isHero}
                 setId={this.setId}
                 isBig={item.id === selectedId}
                 invisible={

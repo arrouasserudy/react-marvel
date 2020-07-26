@@ -14,6 +14,7 @@ class SearchBar extends React.Component {
         return (
             <div>
                 <input value={value} onChange={this.onChange} />
+                <button onClick={this.props.search}>SEARCH</button>
             </div>
         )
     }

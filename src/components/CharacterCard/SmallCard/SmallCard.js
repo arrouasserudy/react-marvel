@@ -14,7 +14,7 @@ const SmallCard = props => {
     return (
         <div className={styles.container} onClick={setSelected}>
             <div className={styles.top}>
-                <div className={`${styles.image} ${styles[getColor(isHero)]}`}/>
+                <div className={`${styles.image}`}/>
                 <div className={styles.name}>{name}</div>
             </div>
             <div className={styles.description}>{description}</div>
