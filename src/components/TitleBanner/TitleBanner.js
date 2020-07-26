@@ -27,7 +27,6 @@ class TitleBanner extends React.Component {
         return (
             <div className={styles.container}>
                 <img className={styles.image} src={marvelImage} alt="marvel" />
-                {timer}
             </div>
         )
     }
