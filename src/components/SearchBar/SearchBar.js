@@ -3,9 +3,22 @@ import styles from './SearchBar.module.css'
 
 
 class SearchBar extends React.Component {
+    constructor(props) {
+        super(props)
+        this.inputRef = React.createRef()
+    }
+
+    componentDidMount() {
+        this.inputRef.current.focus()
+    }
+
     onChange = event => {
         const {updateValue} = this.props
         updateValue(event.target.value)
+    }
+
+    onClick = () => {
+        console.log(this.inputRef.current.value)
     }
 
     render() {
@@ -13,8 +26,8 @@ class SearchBar extends React.Component {
 
         return (
             <div>
-                <input value={value} onChange={this.onChange} />
-                <button onClick={this.props.search}>SEARCH</button>
+                <input value={value} onChange={this.onChange} ref={this.inputRef}/>
+                <button onClick={this.onClick}>SEARCH</button>
             </div>
         )
     }
