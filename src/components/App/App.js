@@ -1,45 +1,33 @@
 import React from 'react'
-import axios from 'axios'
-import styles from './App.module.css'
-import TitleBanner from '../TitleBanner/TitleBanner'
-import CardList from '../CardList/CardList'
-import SearchBar from '../SearchBar/SearchBar'
-import {findCharacter, findCharacterById} from '../../api/api'
+import { BrowserRouter, Route, Switch } from 'react-router-dom'
+import MarvelSearch from '../MarvelSearch/MarvelSearch'
+import Layout from '../Layout/Layout'
+import SettingsScreen from '../SettingsScreen/SettingsScreen'
+import TodoList from '../todo_list/TodoList/TodoList'
 
-class App extends React.Component {
-    state = {
-        value: '',
-        result: []
-    }
+import { Provider } from 'react-redux'
+import { createStore } from 'redux'
+import globalReducer from '../reducers'
 
-    updateValue = (value) => {
-        this.setState({value})
-    }
+const store = createStore(globalReducer)
 
-    search = async () => {
-        const {value} = this.state
-        // const url = findCharacter(value)
-        const url = findCharacterById(value)
-        const response = await axios.get(url)
-        if (response) {
-            const data = response.data.data.results
-            console.log(data)
-            this.setState(
-                { result: data }
-            )
-        }
-    }
+const App = () => {
+    const PageNotFound = () => <div>Page introuvable</div>
 
-    render() {
-        const {value, result} = this.state
-        return (
-            <div className={styles.container}>
-                <TitleBanner />
-                <SearchBar updateValue={this.updateValue} value={value} search={this.search}/>
-                <CardList value={value} result={result}/>
-            </div>
-        )
-    }
+    return (
+        <Provider store={store}>
+            <BrowserRouter>
+                <Layout>
+                    <Switch>
+                        <Route exact path="/" component={MarvelSearch} />
+                        <Route path="/todo/:name" component={TodoList} />
+                        <Route path="/settings" component={SettingsScreen} />
+                        <Route component={PageNotFound} />
+                    </Switch>
+                </Layout>
+            </BrowserRouter>
+        </Provider>
+    )
 }
 
 export default App

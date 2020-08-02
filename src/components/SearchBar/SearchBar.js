@@ -22,12 +22,12 @@ class SearchBar extends React.Component {
     }
 
     render() {
-        const { value } = this.props
+        const { value, search } = this.props
 
         return (
             <div>
                 <input value={value} onChange={this.onChange} ref={this.inputRef}/>
-                <button onClick={this.onClick}>SEARCH</button>
+                <button onClick={search}>SEARCH</button>
             </div>
         )
     }

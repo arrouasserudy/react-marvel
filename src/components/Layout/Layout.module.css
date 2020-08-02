@@ -1,0 +1,39 @@
+.header {
+    width: 100%;
+    height: 30px;
+    background-color: #675757;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+@media (max-width: 500px) {
+    .header {
+        background-color: #070763;
+    }
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.menuContainer {
+
+}
+
+.burger {
+    width: 300px;
+    background-color: grey;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.burger2 {
+    color: #FFFFFF;
+}
+
+.app {
+    width: 100%
+}

@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './components/App/App';
+import MarvelSearch from './components/MarvelSearch/App';
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
-  ReactDOM.render(<App />, div);
+  ReactDOM.render(<MarvelSearch />, div);
   ReactDOM.unmountComponentAtNode(div);
 });
