@@ -32,7 +32,4 @@ const mapDispatchToProps = {
     setDarkMode,
 }
 
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps,
-)(SettingsScreen)
+export default connect(mapStateToProps, mapDispatchToProps)(SettingsScreen)

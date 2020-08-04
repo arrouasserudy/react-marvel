@@ -35,6 +35,7 @@ class CardList extends React.Component {
                 key={item.id}
                 id={item.id}
                 name={item.name}
+                thumbnail={item.thumbnail}
                 description={item.description}
                 setId={this.setId}
                 isBig={item.id === selectedId}

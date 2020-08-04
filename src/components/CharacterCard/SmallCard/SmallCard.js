@@ -1,20 +1,31 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styles from './SmallCard.module.css'
+import { getImageUrl } from '../../../api/api'
 
 const DEFAULT_DESCRIPTION = 'Un personnage marvel'
 
 const SmallCard = props => {
-    const { name, description = DEFAULT_DESCRIPTION, isHero, getColor, setId, id } = props
+    const {
+        name,
+        description = DEFAULT_DESCRIPTION,
+        setId,
+        id,
+        thumbnail,
+    } = props
 
     const setSelected = () => {
-        setId(id)
+        if (setId) {
+            setId(id)
+        }
     }
 
     return (
         <div className={styles.container} onClick={setSelected}>
             <div className={styles.top}>
-                <div className={`${styles.image}`}/>
+                <div className={`${styles.image}`}>
+                    <img src={getImageUrl(thumbnail, 'l')} alt="image" />
+                </div>
                 <div className={styles.name}>{name}</div>
             </div>
             <div className={styles.description}>{description}</div>

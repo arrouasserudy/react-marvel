@@ -34,6 +34,9 @@ class Layout extends React.Component {
                         <Link style={{ color: 'black' }} to="/settings">
                             {'Settings'}
                         </Link>
+                        <Link style={{ color: 'black' }} to="/favorites">
+                            {'Favorites'}
+                        </Link>
                     </div>
                     {children}
                     <div className={styles.header}>

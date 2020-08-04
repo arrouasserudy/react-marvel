@@ -4,7 +4,7 @@ import SmallCard from './SmallCard/SmallCard'
 import BigCard from './BigCard/BigCard'
 
 const CharacterCard = props => {
-    const { name, description,isBig, setId, id, invisible } = props
+    const { name, description,isBig, setId, id, invisible, thumbnail } = props
 
     if (isBig) {
         return (
@@ -12,6 +12,8 @@ const CharacterCard = props => {
                 name={name}
                 description={description}
                 setId={setId}
+                id={id}
+                thumbnail={thumbnail}
             />
         )
     } else if (invisible) {
@@ -23,6 +25,7 @@ const CharacterCard = props => {
                 description={description}
                 setId={setId}
                 id={id}
+                thumbnail={thumbnail}
             />
         )
     }
